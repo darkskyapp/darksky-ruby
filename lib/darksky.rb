@@ -1,5 +1,5 @@
-require "darksky/version"
+require 'darksky/version'
+require 'darksky/api'
 
 module Darksky
-  # Your code goes here...
 end
