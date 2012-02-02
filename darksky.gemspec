@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["David Czarnecki"]
   s.email       = ["me@davidczarnecki"]
   s.homepage    = "https://github.com/czarneckid/darksky"
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Ruby gem for retrieving data from the Dark Sky API}
+  s.description = %q{Ruby gem for retrieving data from the Dark Sky API}
 
   s.rubyforge_project = "darksky"
 
@@ -18,7 +18,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_dependency('typhoeus')
+
+  s.add_development_dependency('rake')
+  s.add_development_dependency('rspec')
 end
