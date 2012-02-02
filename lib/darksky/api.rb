@@ -5,18 +5,28 @@ module Darksky
   class API
     DARKSKY_API_URL = 'http://api.darkskyapp.com/v1'
 
+    # Create a new instance of the Darksky::API using your API key.
+    #
+    # @param api_key [String] Dark Sky API key.
     def initialize(api_key)
       @api_key = api_key
     end
 
+    # Returns a forecast for the next hour at a given location.
+    #
+    # @param latitude [String] Latitude in decimal degrees.
+    # @param longitude [String] Longitude in decimal degrees.
     def forecast(latitude, longitude)
       response = Typhoeus::Request.get("#{DARKSKY_API_URL}/forecast/#{@api_key}/#{latitude},#{longitude}")
       JSON.parse(response.body) if response.code == 200
     end
 
-    def precipitation(latitude_longitude_times)
-      return if latitude_longitude_times.size % 3 != 0
-      response = Typhoeus::Request.get("#{DARKSKY_API_URL}/precipitation/#{@api_key}/#{latitude_longitude_times.join(',')}")
+    # Returns forecasts for a collection of arbitrary points.
+    #
+    # @param latitudes_longitudes_times [Array] Triplets of latitude, longitude and time. Example: ['42.7','-73.6',1325607100,'42.0','-73.0',1325607791]
+    def precipitation(latitudes_longitudes_times)
+      return if latitudes_longitudes_times.size % 3 != 0
+      response = Typhoeus::Request.get("#{DARKSKY_API_URL}/precipitation/#{@api_key}/#{latitudes_longitudes_times.join(',')}")
     end
   end
 end
