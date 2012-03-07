@@ -17,8 +17,8 @@ gem 'darksky'
 
 ```ruby
 darksky = Darksky::API.new('d41d8cd98f00b204e9800998ecf8427e')
-forecast = darksky_api.forecast('42.7243','-73.6927')
-precipitation = darksky_api.precipitation(['42.7','-73.6',1325607100,'42.0','-73.0',1325607791])
+forecast = darksky.forecast('42.7243','-73.6927')
+precipitation = darksky.precipitation(['42.7','-73.6',1325607100,'42.0','-73.0',1325607791])
 ```
   
 ## Contributing to darksky
