@@ -5,7 +5,6 @@ module Darksky
   class API
     DARKSKY_API_URL = 'https://api.darkskyapp.com/v1'
     DEFAULT_OPTIONS = {
-      :disable_ssl_peer_verification => true
     }
 
     # Create a new instance of the Darksky::API using your API key.
@@ -19,6 +18,7 @@ module Darksky
     #
     # @param latitude [String] Latitude in decimal degrees.
     # @param longitude [String] Longitude in decimal degrees.
+    # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
     def forecast(latitude, longitude, options = {})
       response = Typhoeus::Request.get("#{DARKSKY_API_URL}/forecast/#{@api_key}/#{latitude},#{longitude}", DEFAULT_OPTIONS.dup.merge(options))
       JSON.parse(response.body) if response.code == 200
@@ -27,6 +27,7 @@ module Darksky
     # Returns forecasts for a collection of arbitrary points.
     #
     # @param latitudes_longitudes_times [Array] Triplets of latitude, longitude and time. Example: ['42.7','-73.6',1325607100,'42.0','-73.0',1325607791]
+    # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
     def precipitation(latitudes_longitudes_times, options = {})
       return if latitudes_longitudes_times.size % 3 != 0
       response = Typhoeus::Request.get("#{DARKSKY_API_URL}/precipitation/#{@api_key}/#{latitudes_longitudes_times.join(',')}", DEFAULT_OPTIONS.dup.merge(options))
