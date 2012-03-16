@@ -17,7 +17,7 @@ describe Darksky::API do
     it 'should return forecasts for a collection of arbitrary points' do
       VCR.use_cassette('precipitation', :record => :once) do
         precipitation = darksky_api.precipitation(['42.7','-73.6',1325607100,'42.0','-73.0',1325607791])
-        precipitation['precipitation'].size.should == 1
+        precipitation['precipitation'].size.should == 2
         precipitation['precipitation'].first['probability'].should == 0
         precipitation['precipitation'].first['type'].should == 'rain'
       end

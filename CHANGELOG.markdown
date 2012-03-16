@@ -3,6 +3,7 @@
 ## 1.0.3
 
 * Added `interesting` API endpoint to return a list of interesting storms happening right now.
+* Fixed bug in `precipitation` API endpoint where multiple locations were not correctly passed to the API.
 
 ## 1.0.2
 

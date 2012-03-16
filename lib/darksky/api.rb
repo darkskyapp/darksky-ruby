@@ -30,7 +30,11 @@ module Darksky
     # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
     def precipitation(latitudes_longitudes_times, options = {})
       return if latitudes_longitudes_times.size % 3 != 0
-      response = Typhoeus::Request.get("#{DARKSKY_API_URL}/precipitation/#{@api_key}/#{latitudes_longitudes_times.join(',')}", DEFAULT_OPTIONS.dup.merge(options))
+      params = []      
+      latitudes_longitudes_times.each_slice(3) do |data|
+        params << data.join(',')
+      end
+      response = Typhoeus::Request.get("#{DARKSKY_API_URL}/precipitation/#{@api_key}/#{params.join(';')}", DEFAULT_OPTIONS.dup.merge(options))
       JSON.parse(response.body) if response.code == 200
     end
 

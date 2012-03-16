@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.darkskyapp.com/v1/precipitation/this-is-your-dark-sky-api-key/42.7,-73.6,1325607100,42.0,-73.0,1325607791
+    uri: https://api.darkskyapp.com/v1/precipitation/this-is-your-dark-sky-api-key/42.7,-73.6,1325607100;42.0,-73.0,1325607791
     body:
       encoding: US-ASCII
       string: ''
@@ -17,12 +17,12 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '93'
+      - '167'
       Connection:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: ! '{"precipitation":[{"probability":0,"intensity":0,"error":0,"type":"rain","time":1325607791}]}'
+      string: ! '{"precipitation":[{"probability":0,"intensity":0,"error":0,"type":"rain","time":1325607100},{"probability":0,"intensity":0,"error":0,"type":"rain","time":1325607791}]}'
     http_version: '1.1'
-  recorded_at: Fri, 16 Mar 2012 00:22:55 GMT
+  recorded_at: Fri, 16 Mar 2012 00:36:48 GMT
 recorded_with: VCR 2.0.0
