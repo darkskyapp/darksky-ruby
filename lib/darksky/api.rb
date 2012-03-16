@@ -33,5 +33,13 @@ module Darksky
       response = Typhoeus::Request.get("#{DARKSKY_API_URL}/precipitation/#{@api_key}/#{latitudes_longitudes_times.join(',')}", DEFAULT_OPTIONS.dup.merge(options))
       JSON.parse(response.body) if response.code == 200
     end
+
+    # Returns a list of interesting storms happening right now.
+    #
+    # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
+    def interesting(options = {})
+      response = Typhoeus::Request.get("#{DARKSKY_API_URL}/interesting/#{@api_key}", DEFAULT_OPTIONS.dup.merge(options))
+      JSON.parse(response.body) if response.code == 200      
+    end
   end
 end

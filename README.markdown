@@ -17,8 +17,15 @@ gem 'darksky'
 
 ```ruby
 darksky = Darksky::API.new('d41d8cd98f00b204e9800998ecf8427e')
+
+# Returns a forecast for the next hour at a given location.
 forecast = darksky.forecast('42.7243','-73.6927')
+
+# Returns forecasts for a collection of arbitrary points.
 precipitation = darksky.precipitation(['42.7','-73.6',1325607100,'42.0','-73.0',1325607791])
+
+# Returns a list of interesting storms happening right now.
+interesting_storms = darksky.interesting
 ```
 
 ## Contributing to darksky

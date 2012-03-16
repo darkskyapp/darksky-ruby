@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.darkskyapp.com/v1/interesting/this-is-your-dark-sky-api-key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1213'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: ! '{"storms":[{"station":"gwx","intensity":59.1176,"city":"Triana, AL","longitude":-86.75493150419186,"latitude":34.641395125358194},{"station":"dtx","intensity":57.9412,"city":"South
+        Monroe, MI","longitude":-83.39335852861447,"latitude":41.86838558543463},{"station":"htx","intensity":56.4706,"city":"Huntsville,
+        AL","longitude":-86.62052879383518,"latitude":34.79127010512976},{"station":"jkl","intensity":56.1765,"city":"Manchester,
+        KY","longitude":-83.749418868936,"latitude":37.05544557347635},{"station":"iwx","intensity":56.1765,"city":"Bass
+        Lake, IN","longitude":-86.55524444156121,"latitude":41.19456019130322},{"station":"pah","intensity":56.1765,"city":"Centerville,
+        MO","longitude":-91.05466740454301,"latitude":37.54925976072387},{"station":"lot","intensity":55.5882,"city":"Bass
+        Lake, IN","longitude":-86.63659365658056,"latitude":41.211492393559716},{"station":"ilx","intensity":55,"city":"Winchester,
+        IL","longitude":-90.42692738243768,"latitude":39.68433565620716},{"station":"lsx","intensity":55,"city":"Centerville,
+        MO","longitude":-91.07445695965303,"latitude":37.37996424972698},{"station":"sgf","intensity":54.7059,"city":"Salem,
+        MO","longitude":-91.53280101446386,"latitude":37.788012812361}]}'
+    http_version: '1.1'
+  recorded_at: Fri, 16 Mar 2012 00:21:37 GMT
+recorded_with: VCR 2.0.0
