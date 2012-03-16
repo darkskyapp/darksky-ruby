@@ -1,0 +1,28 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.darkskyapp.com/v1/brief_forecast/this-is-your-dark-sky-api-key/42.7243,-73.6927
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '95'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: ! '{"isPrecipitating":false,"minutesUntilChange":0,"currentSummary":"clear","hourSummary":"clear"}'
+    http_version: '1.1'
+  recorded_at: Fri, 16 Mar 2012 20:19:37 GMT
+recorded_with: VCR 2.0.0
