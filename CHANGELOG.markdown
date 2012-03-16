@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.4
+
+* Added `brief_forecast` API endpoint to return a brief forecast for the latitude and longitude.
+
 ## 1.0.3
 
 * Added `interesting` API endpoint to return a list of interesting storms happening right now.

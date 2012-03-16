@@ -13,6 +13,16 @@ describe Darksky::API do
     end
   end
 
+  describe '#brief_forecast' do
+    it 'should return a valid brief forecast for a latitude and longitude' do    
+      VCR.use_cassette('brief_forecast', :record => :once) do
+        forecast = darksky_api.brief_forecast('42.7243','-73.6927')
+        forecast['currentSummary'].should == 'clear'
+        forecast['hourSummary'].should == 'clear'
+      end
+    end
+  end
+
   describe '#precipitation' do
     it 'should return forecasts for a collection of arbitrary points' do
       VCR.use_cassette('precipitation', :record => :once) do

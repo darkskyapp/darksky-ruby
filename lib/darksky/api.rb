@@ -24,6 +24,16 @@ module Darksky
       JSON.parse(response.body) if response.code == 200
     end
 
+    # Returns a brief forecast for the next hour at a given location.
+    #
+    # @param latitude [String] Latitude in decimal degrees.
+    # @param longitude [String] Longitude in decimal degrees.
+    # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
+    def brief_forecast(latitude, longitude, options = {})
+      response = Typhoeus::Request.get("#{DARKSKY_API_URL}/brief_forecast/#{@api_key}/#{latitude},#{longitude}", DEFAULT_OPTIONS.dup.merge(options))
+      JSON.parse(response.body) if response.code == 200
+    end
+
     # Returns forecasts for a collection of arbitrary points.
     #
     # @param latitudes_longitudes_times [Array] Triplets of latitude, longitude and time. Example: ['42.7','-73.6',1325607100,'42.0','-73.0',1325607791]

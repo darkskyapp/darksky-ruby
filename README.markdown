@@ -21,6 +21,9 @@ darksky = Darksky::API.new('this-is-your-dark-sky-api-key')
 # Returns a forecast for the next hour at a given location.
 forecast = darksky.forecast('42.7243','-73.6927')
 
+# Returns a brief forecast for the next hour at a given location.
+brief_forecast = darksky.brief_forecast('42.7243','-73.6927')
+
 # Returns forecasts for a collection of arbitrary points.
 precipitation = darksky.precipitation(['42.7','-73.6',1325607100,'42.0','-73.0',1325607791])
 
