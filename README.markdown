@@ -16,7 +16,7 @@ gem 'darksky'
 ## Usage
 
 ```ruby
-darksky = Darksky::API.new('d41d8cd98f00b204e9800998ecf8427e')
+darksky = Darksky::API.new('this-is-your-dark-sky-api-key')
 
 # Returns a forecast for the next hour at a given location.
 forecast = darksky.forecast('42.7243','-73.6927')
