@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Darksky::VERSION do
+describe 'Darksky::VERSION' do
   it 'should be the correct version' do
     Darksky::VERSION.should == '1.0.4'
   end
