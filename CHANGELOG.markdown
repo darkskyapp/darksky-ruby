@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.5
+
+* Updated gemspec to reflect new homepage. The repository has moved to https://github.com/darkskyapp/darksky-ruby.
+
 ## 1.0.4
 
 * Added `brief_forecast` API endpoint to return a brief forecast for the latitude and longitude.
@@ -19,6 +23,6 @@
 * Default options for API endpoints disable SSL peer verification while DarkSky API is in beta and still uses a self-signed certificate.
 * Fixed response parsing for `precipitation` API endpoint.
 
-## 1.0.0 
+## 1.0.0
 
 * Initial release.

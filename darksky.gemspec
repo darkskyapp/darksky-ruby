@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Darksky::VERSION
   s.authors     = ["David Czarnecki"]
   s.email       = ["me@davidczarnecki.com"]
-  s.homepage    = "https://github.com/czarneckid/darksky"
+  s.homepage    = "https://github.com/darkskyapp/darksky-ruby"
   s.summary     = %q{Ruby gem for retrieving data from the Dark Sky API}
   s.description = %q{Ruby gem for retrieving data from the Dark Sky API}
 
