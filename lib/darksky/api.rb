@@ -40,7 +40,7 @@ module Darksky
     # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
     def precipitation(latitudes_longitudes_times, options = {})
       return if latitudes_longitudes_times.size % 3 != 0
-      params = []      
+      params = []
       latitudes_longitudes_times.each_slice(3) do |data|
         params << data.join(',')
       end
@@ -53,7 +53,39 @@ module Darksky
     # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
     def interesting(options = {})
       response = Typhoeus::Request.get("#{DARKSKY_API_URL}/interesting/#{@api_key}", DEFAULT_OPTIONS.dup.merge(options))
-      JSON.parse(response.body) if response.code == 200      
+      JSON.parse(response.body) if response.code == 200
+    end
+
+    # Create a notification.
+    #
+    # @param latitude [String] Latitude to check for the notification in decimal degrees.
+    # @param longitude [String] Longitude to check for the notification in decimal degrees.
+    # @param callback_uri [String] HTTP(S) URI to request when a notification fires.
+    # @param threshold [int, 15] a dBZ value between 2 and 75 (inclusive).
+    # @param options [Hash] Options to be passed to the Typhoeus::Request.
+    def create_notification(latitude, longitude, callback_uri, threshold = 15, options = {})
+      post_data = {
+        :params => {
+          :lat => latitude,
+          :long => longitude,
+          :callback => callback_uri,
+          :threshold => threshold
+        }
+      }
+
+      post_data.merge(DEFAULT_OPTIONS.dup.merge(options))
+
+      response = Typhoeus::Request.post("#{DARKSKY_API_URL}/create_notification/#{@api_key}", post_data)
+      JSON.parse(response.body) if response.code == 200
+    end
+
+    # Retrieve a notification.
+    #
+    # @param notification_id [String] Notification ID.
+    # @param options [Hash] Options to be passed to the Typhoeus::Request.
+    def retrieve_notification(notification_id, options = {})
+      response = Typhoeus::Request.get("#{DARKSKY_API_URL}/notification/#{@api_key}/#{notification_id}", DEFAULT_OPTIONS.dup.merge(options))
+      JSON.parse(response.body) if response.code == 200
     end
   end
 end

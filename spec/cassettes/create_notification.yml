@@ -1,0 +1,30 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.darkskyapp.com/v1/create_notification/this-is-your-dark-sky-api-key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '15'
+      Date:
+      - Tue, 25 Sep 2012 14:34:33 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":30713794}'
+    http_version: '1.1'
+  recorded_at: Tue, 25 Sep 2012 14:34:33 GMT
+recorded_with: VCR 2.2.5

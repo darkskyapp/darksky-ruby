@@ -4,7 +4,7 @@ describe Darksky::API do
   let(:darksky_api) { Darksky::API.new('this-is-your-dark-sky-api-key') }
 
   describe '#forecast' do
-    it 'should return a valid forecast for a latitude and longitude' do    
+    it 'should return a valid forecast for a latitude and longitude' do
       VCR.use_cassette('forecast', :record => :once) do
         forecast = darksky_api.forecast('42.7243','-73.6927')
         forecast['currentSummary'].should == 'clear'
@@ -14,7 +14,7 @@ describe Darksky::API do
   end
 
   describe '#brief_forecast' do
-    it 'should return a valid brief forecast for a latitude and longitude' do    
+    it 'should return a valid brief forecast for a latitude and longitude' do
       VCR.use_cassette('brief_forecast', :record => :once) do
         forecast = darksky_api.brief_forecast('42.7243','-73.6927')
         forecast['currentSummary'].should == 'clear'
@@ -39,6 +39,27 @@ describe Darksky::API do
       VCR.use_cassette('interesting', :record => :once) do
         interesting_storms = darksky_api.interesting
         interesting_storms.size.should == 1
+      end
+    end
+  end
+
+  describe '#create_notification' do
+    it 'should return a notification ID on successfully creating a notification' do
+      VCR.use_cassette('create_notification', :record => :once) do
+        created_notification = darksky_api.create_notification(42.735, -73.6931, 'http://example.com/some/callback')
+        created_notification['id'].should == 30713794
+      end
+    end
+  end
+
+  describe '#retrieve_notification' do
+    it 'should return information about a notification that has been created' do
+      VCR.use_cassette('retrieve_notification', :record => :once) do
+        notification = darksky_api.retrieve_notification(30713794)
+        notification['id'].should == 30713794
+        notification['latitude'].should == 42.74
+        notification['enabled'].should be_true
+        notification['notificationCount'].should == 0
       end
     end
   end
