@@ -104,5 +104,21 @@ module Darksky
       response = Typhoeus::Request.post("#{DARKSKY_API_URL}/update_notification/#{@api_key}", post_data)
       JSON.parse(response.body) if response.code == 200
     end
+
+    # Delete a notification.
+    #
+    # @param notification_id [String] Notification ID.
+    # @param options [Hash] Options to be passed to the Typhoeus::Request.
+    def delete_notification(notification_id, options = {})
+      post_data = {
+        :params => {}
+      }
+
+      post_data[:params][:id] = notification_id
+      post_data = post_data.merge(DEFAULT_OPTIONS.dup.merge(options))
+
+      response = Typhoeus::Request.post("#{DARKSKY_API_URL}/delete_notification/#{@api_key}", post_data)
+      JSON.parse(response.body) if response.code == 200
+    end
   end
 end

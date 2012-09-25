@@ -75,4 +75,13 @@ describe Darksky::API do
       end
     end
   end
+
+  describe '#delete_notification' do
+    it 'should delete a notification' do
+      VCR.use_cassette('delete_notification', :record => :once) do
+        deleted_notification = darksky_api.delete_notification(30713794)
+        deleted_notification.should == {}
+      end
+    end
+  end
 end
