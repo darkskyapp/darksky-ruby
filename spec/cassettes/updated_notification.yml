@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.darkskyapp.com/v1/update_notification/this-is-your-dark-sky-api-key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2'
+      Date:
+      - Tue, 25 Sep 2012 15:31:35 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{}'
+    http_version: '1.1'
+  recorded_at: Tue, 25 Sep 2012 15:31:35 GMT
+- request:
+    method: get
+    uri: https://api.darkskyapp.com/v1/notification/this-is-your-dark-sky-api-key/30713794
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '196'
+      Date:
+      - Tue, 25 Sep 2012 15:31:35 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":30713794,"latitude":42.74,"longitude":-73.69,"threshold":15,"createdAt":1348583673,"lastNotificationAt":0,"notificationCount":0,"callback":"http://example.com/some/callback","enabled":false}'
+    http_version: '1.1'
+  recorded_at: Tue, 25 Sep 2012 15:31:35 GMT
+recorded_with: VCR 2.2.5

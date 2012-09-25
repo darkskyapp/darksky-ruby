@@ -73,7 +73,7 @@ module Darksky
         }
       }
 
-      post_data.merge(DEFAULT_OPTIONS.dup.merge(options))
+      post_data = post_data.merge(DEFAULT_OPTIONS.dup.merge(options))
 
       response = Typhoeus::Request.post("#{DARKSKY_API_URL}/create_notification/#{@api_key}", post_data)
       JSON.parse(response.body) if response.code == 200
@@ -85,6 +85,23 @@ module Darksky
     # @param options [Hash] Options to be passed to the Typhoeus::Request.
     def retrieve_notification(notification_id, options = {})
       response = Typhoeus::Request.get("#{DARKSKY_API_URL}/notification/#{@api_key}/#{notification_id}", DEFAULT_OPTIONS.dup.merge(options))
+      JSON.parse(response.body) if response.code == 200
+    end
+
+    # Update a notification.
+    #
+    # @param notification_id [String] Notification ID.
+    # @param notification_parameters [Hash] Updated notification parameters.
+    # @param options [Hash] Options to be passed to the Typhoeus::Request.
+    def update_notification(notification_id, notification_parameters = {}, options = {})
+      post_data = {
+        :params => notification_parameters
+      }
+
+      post_data[:params][:id] = notification_id
+      post_data = post_data.merge(DEFAULT_OPTIONS.dup.merge(options))
+
+      response = Typhoeus::Request.post("#{DARKSKY_API_URL}/update_notification/#{@api_key}", post_data)
       JSON.parse(response.body) if response.code == 200
     end
   end

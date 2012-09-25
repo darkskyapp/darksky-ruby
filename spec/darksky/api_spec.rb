@@ -63,4 +63,16 @@ describe Darksky::API do
       end
     end
   end
+
+  describe '#update_notification' do
+    it 'should update a notification' do
+      VCR.use_cassette('updated_notification', :record => :once) do
+        updated_notification = darksky_api.update_notification(30713794, :enabled => 0)
+        updated_notification.should == {}
+
+        notification = darksky_api.retrieve_notification(30713794)
+        notification['enabled'].should be_false
+      end
+    end
+  end
 end
