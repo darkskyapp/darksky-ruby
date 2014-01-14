@@ -1,7 +1,7 @@
 # darksky
 
-Ruby gem for retrieving data from the [Dark Sky API](http://darkskyapp.com/api/). The Dark Sky API lets you query 
-for short-term precipitation forecast data at geographical points inside the United States. 
+Ruby gem for retrieving data from the [Dark Sky API](http://darkskyapp.com/api/). The Dark Sky API lets you query
+for short-term precipitation forecast data at geographical points inside the United States.
 
 ## Installation
 
@@ -12,7 +12,7 @@ or in your `Gemfile`
 ```ruby
 gem 'darksky'
 ```
-  
+
 ## Usage
 
 ```ruby
@@ -32,7 +32,7 @@ interesting_storms = darksky.interesting
 ```
 
 ## Contributing to darksky
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
@@ -43,4 +43,4 @@ interesting_storms = darksky.interesting
 
 ## Copyright
 
-Copyright (c) 2012-2013 David Czarnecki. See LICENSE.txt for further details.
+Copyright (c) 2012-2014 David Czarnecki. See LICENSE.txt for further details.
