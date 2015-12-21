@@ -3,7 +3,7 @@ require 'json'
 
 module Darksky
   class API
-    DARKSKY_API_URL = 'https://api.darkskyapp.com/v1'
+    DARKSKY_API_URL = 'https://api.forecast.io/forecast/'
     DEFAULT_OPTIONS = {
     }
 
@@ -40,7 +40,7 @@ module Darksky
     # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
     def precipitation(latitudes_longitudes_times, options = {})
       return if latitudes_longitudes_times.size % 3 != 0
-      params = []      
+      params = []
       latitudes_longitudes_times.each_slice(3) do |data|
         params << data.join(',')
       end
@@ -53,7 +53,7 @@ module Darksky
     # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
     def interesting(options = {})
       response = Typhoeus::Request.get("#{DARKSKY_API_URL}/interesting/#{@api_key}", DEFAULT_OPTIONS.dup.merge(options))
-      JSON.parse(response.body) if response.code == 200      
+      JSON.parse(response.body) if response.code == 200
     end
   end
 end
