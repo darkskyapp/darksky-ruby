@@ -24,6 +24,17 @@ module Darksky
       JSON.parse(response.body) if response.code == 200
     end
 
+    # Returns a forecast for the passed time at a given location.
+    #
+    # @param latitude [String] Latitude in decimal degrees.
+    # @param longitude [String] Longitude in decimal degrees.
+    # @param timestamp [time] Time in seconds since epoch.
+    # @param option [Hash] (Optional) Options to be passed to the Typhoeus::Request
+    def brief_forecast_time(latitude, longitude, timestamp, options = {})
+      response = Typhoeus::Request.get("#{DARKSKY_API_URL}/forecast/#{@api_key}/#{latitude},#{longitude},#{timestamp}?exclude=minutely,hourly,daily", DEFAULT_OPTIONS.dup.merge(options))
+      JSON.parse(response.body) if response.code == 200
+    end
+
     # Returns a brief forecast for the next hour at a given location.
     #
     # @param latitude [String] Latitude in decimal degrees.
