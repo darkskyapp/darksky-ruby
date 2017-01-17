@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.darkskyapp.com/v1/precipitation/this-is-your-dark-sky-api-key/42.7,-73.6,1325607100;42.0,-73.0,1325607791
+    uri: https://api.darksky.net/precipitation/this-is-your-dark-sky-api-key/42.7,-73.6,1325607100;42.0,-73.0,1325607791
     body:
       encoding: US-ASCII
       string: ''
