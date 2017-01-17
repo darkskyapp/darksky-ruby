@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.darkskyapp.com/v1/interesting/this-is-your-dark-sky-api-key
+    uri: https://api.darksky.net/interesting/this-is-your-dark-sky-api-key
     body:
       encoding: US-ASCII
       string: ''

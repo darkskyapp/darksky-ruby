@@ -1,6 +1,6 @@
 # darksky
 
-Ruby gem for retrieving data from the [Dark Sky API](http://darkskyapp.com/api/). The Dark Sky API lets you query
+Ruby gem for retrieving data from the [Dark Sky API](https://darksky.net/dev/docs). The Dark Sky API lets you query
 for short-term precipitation forecast data at geographical points inside the United States.
 
 ## Installation
