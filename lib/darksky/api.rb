@@ -3,7 +3,7 @@ require 'json'
 
 module Darksky
   class API
-    DARKSKY_API_URL = 'https://api.darksky.net/'
+    DARKSKY_API_URL = 'https://api.darksky.net'
     DEFAULT_OPTIONS = {
     }
 
