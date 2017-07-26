@@ -42,4 +42,14 @@ describe Darksky::API do
       end
     end
   end
+
+  describe '#time_machine' do
+    it 'should return a valid forecast for a latitude and longitude' do    
+      VCR.use_cassette('forecast', :record => :once) do
+        forecast = darksky_api.time_machine('42.7243','-73.6927','409467600')
+        forecast['currentSummary'].should == 'clear'
+        forecast['radarStation'].should == 'enx'
+      end
+    end
+  end
 end
