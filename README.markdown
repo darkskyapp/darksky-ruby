@@ -29,6 +29,9 @@ precipitation = darksky.precipitation(['42.7','-73.6',1325607100,'42.0','-73.0',
 
 # Returns a list of interesting storms happening right now.
 interesting_storms = darksky.interesting
+
+# Returns historic data for a given location.
+history = darksky.time_machine('42.7243','-73.6927', '409467600')
 ```
 
 ## Contributing to darksky

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.6
+
+* Fixed API endpoint
+* Added time_machine method to query historic data
+
 ## 1.0.5
 
 * Updated gemspec to reflect new homepage. The repository has moved to https://github.com/darkskyapp/darksky-ruby.
